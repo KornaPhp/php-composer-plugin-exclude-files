@@ -39,7 +39,7 @@ vendor directory.
 This plugin is invoked before the autoloader is dumped, such as with the
 commands `install`, `update`, and `dump-autoload`.
 
-###### Example 1: Using illuminate/support
+###### Example 1: Excluding one file from illuminate/support
 
 ```json
 {
@@ -59,7 +59,7 @@ commands `install`, `update`, and `dump-autoload`.
 }
 ```
 
-###### Example 2: Using laravel/framework
+###### Example 2: Excluding many files from laravel/framework
 
 ```json
 {
@@ -68,14 +68,24 @@ commands `install`, `update`, and `dump-autoload`.
     },
     "extra": {
         "exclude-from-files": [
-            "laravel/framework/src/Illuminate/Foundation/helpers.php"
+            "laravel/framework/src/*/helpers.php"
         ]
     },
-    "config": {
-        "allow-plugins": {
-            "mcaskill/composer-exclude-files": true
-        }
-    }
+    "config": {…}
+}
+```
+
+###### Example 3: Excluding all files
+
+```json
+{
+    "require": {…},
+    "extra": {
+        "exclude-from-files": [
+            "*"
+        ]
+    },
+    "config": {…}
 }
 ```
 
